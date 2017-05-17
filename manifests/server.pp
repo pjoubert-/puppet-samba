@@ -19,6 +19,12 @@ class samba::server($interfaces = '',
                     $pam_password_change = '',
                     $os_level = '',
                     $preferred_master = '',
+                    $ldap_idmap_suffix = '',
+                    $ldap_user_suffix = '',
+                    $ldap_group_suffix = '',
+                    $ldap_suffix = '',
+                    $ldap_ssl = '',
+                    $idmap_backend = '',
                     $bind_interfaces_only = 'yes',
                     $shares = {},
                     $users = {}, ) {
@@ -61,6 +67,12 @@ class samba::server($interfaces = '',
     'pam password change':  value => $pam_password_change;
     'os level':             value => $os_level;
     'preferred master':     value => $preferred_master;
+    'ldap idmap suffix':    value => $ldap_idmap_suffix;
+    'ldap user suffix':     value => $ldap_user_suffix;
+    'ldap group suffix':    value => $ldap_group_suffix;
+    'ldap suffix':          value => $ldap_suffix;
+    'ldap ssl':             value => $ldap_ssl;
+    'idmap backend':        value => $idmap_backend;
   }
 
   create_resources(samba::server::share, $shares)
