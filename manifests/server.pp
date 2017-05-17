@@ -25,6 +25,9 @@ class samba::server($interfaces = '',
                     $ldap_suffix = '',
                     $ldap_ssl = '',
                     $idmap_backend = '',
+                    $realm = '',
+                    $min_protocol = '',
+                    $max_protocol = '',
                     $bind_interfaces_only = 'yes',
                     $shares = {},
                     $users = {}, ) {
@@ -73,6 +76,9 @@ class samba::server($interfaces = '',
     'ldap suffix':          value => $ldap_suffix;
     'ldap ssl':             value => $ldap_ssl;
     'idmap backend':        value => $idmap_backend;
+    'realm':                value => $realm;
+    'min protocol':         value => $min_protocol;
+    'max protocol':         value => $max_protocol;
   }
 
   create_resources(samba::server::share, $shares)
